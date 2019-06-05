@@ -33,7 +33,7 @@ int socket_open()
     struct sockaddr_nl local;
   
     if((nl_sock = socket(AF_NETLINK, SOCK_RAW, NETLINK_INET_DIAG)) == -1){
-        perror("socket: ");
+        printf("nl socket error\n");
         return -1;
     }
 
