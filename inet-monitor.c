@@ -31,12 +31,14 @@ int socket_open()
 {
     int nl_sock;
     struct sockaddr_nl local;
-  
+    
+    /*create socket*/
     if((nl_sock = socket(AF_NETLINK, SOCK_RAW, NETLINK_INET_DIAG)) == -1){
         printf("nl socket error\n");
         return -1;
     }
 
+    /*Confirm whether to call the bind() function according to the actual situation.*/
     memset(&local, 0, sizeof(local));
     local.nl_family = AF_NETLINK;
     local.nl_pid = getpid();//it is not must
